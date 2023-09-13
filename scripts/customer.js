@@ -38,10 +38,24 @@ const loadCustomers=()=>{
                     <td>${data.name}</td>
                     <td>${data.address}</td>
                     <td>${data.salary}</td>
+                    <td>
+                        <button class="btn btn-danger btn-sm" onclick="deleteData(${records.id})">Delete</button> |
+                        <button class="btn btn-success btn-sm" onclick="updateData(${records.id})">Update</button>
+                    </td>
                 </tr>
                 `;
                 $('#table-body').append(row);
             })
     })
+
+
+
+}
+
+const updateData=(id)=>{
+
+}
+
+const deleteData=(id)=>{
 
 }
