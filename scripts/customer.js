@@ -62,13 +62,12 @@ const updateData=(id)=>{
         .collection('customers')
         .doc(customerId)
         .get().then((response)=>{
-            if (response.exists){
+            if (response.exists) {
                 const data = response.data();
-                    $('#name').val(data.name);
-                    $('#address').val(data.address);
-                    $('#salary').val(data.salary)
+                $('#name').val(data.name);
+                $('#address').val(data.address);
+                $('#salary').val(data.salary)
             }
-
     })
 }
 const updateRecord=()=>{
@@ -96,7 +95,7 @@ const deleteData=(id)=>{
             .doc(id)
             .delete()
             .then(()=>{
-                alert('deleted!');
+                toastr.success('Deleted!', 'success!')
                 customerId=undefined;
                 loadCustomers();
             })
