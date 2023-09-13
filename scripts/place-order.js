@@ -1,3 +1,4 @@
+let orders=[];
 const loadIds = ()=>{
     loadCustomerIds();
     loadItemIds();
@@ -45,7 +46,7 @@ $('#customer-id').on("change",function (){
             $('#salary').val(data.salary)
         }
     })
-})
+});
 $('#item-id').on("change",function (){
     const itemId=$(this).val();
     const firestore = firebase.firestore();
@@ -60,5 +61,36 @@ $('#item-id').on("change",function (){
             $('#qty-on-hand').val(data.qtyOnHand)
         }
     })
-})
+});
+
+const addToCart=()=>{
+    const unitPrice = Number.parseInt($('#unit-price').val());
+    const qty = Number.parseInt($('#qty').val());
+    const totalCost = unitPrice*qty;
+
+    const cartObj={
+        "code":$('#item-id').val(),
+        "description":$('#description').val(),
+        "unitPrice":unitPrice,
+        "qty":qty,
+        "totalCost":totalCost
+    };
+
+    orders.push(cartObj);
+
+    $('#cart-body').empty();
+
+    orders.forEach(data=>{
+        const row=`
+        <tr>
+            <td>${data.code}</td>
+            <td>${data.description}</td>
+            <td>${data.unitPrice}</td>
+            <td>${data.qty}</td>
+            <td>${data.totalCost}</td>     
+        </tr>
+        `;
+        $('#cart-body').append(row);
+    });
+}
 
