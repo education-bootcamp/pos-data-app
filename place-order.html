@@ -7,7 +7,7 @@
   <link href="https://cdn.jsdelivr.net/npm/toastr@2.1.4/build/toastr.min.css" rel="stylesheet">
   <link rel="stylesheet" href="styles/place-order.css">
 </head>
-<body onload="loadCustomerIds()">
+<body onload="loadIds()">
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Navbar</a>
@@ -48,7 +48,34 @@
     </div>
   </div>
 </div>
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <div class="form-group">
+        <select name="" id="item-id" class="form-control">
 
+        </select>
+      </div>
+    </div>
+    <div class="col-3">
+      <input type="text" disabled class="form-control" id="description">
+    </div>
+    <div class="col-2">
+      <input type="text" disabled class="form-control" id="unit-price">
+    </div>
+    <div class="col-2">
+      <input type="text" disabled class="form-control" id="qty-on-hand">
+    </div>
+    <div class="col-2">
+      <input type="text" class="form-control" id="qty" placeholder="qty">
+    </div>
+    <div class="col-12">
+      <br>
+      <button class="btn btn-primary col-12">Add to cart</button>
+    </div>
+  </div>
+</div>
 <hr>
 
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
