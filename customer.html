@@ -48,11 +48,39 @@
             <br><!-- dont use always this option -->
 
             <div class="form-group">
-                <input type="button" id="btn-create" class="btn btn-primary col-12" value="Create Customer"
+                <input type="button" id="btn-create" class="btn btn-primary col-5" value="Create Customer"
+                       onclick="createCustomer()">
+                <input type="button" id="btn-update" class="btn btn-success col-5" value="Update Customer"
                        onclick="createCustomer()">
             </div>
         </div>
     </div>
+    <hr>
+
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>#Id</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Salary</th>
+            <th>Options</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>dsafsf</td>
+            <td>Nimal</td>
+            <td>Colombo</td>
+            <td>25000</td>
+            <td>
+                <button class="btn btn-danger">Delete</button> |
+                <button class="btn btn-success">Update</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
 </div>
 
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
