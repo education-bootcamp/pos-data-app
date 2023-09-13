@@ -23,6 +23,6 @@ const loadData=()=>{
     });
 }
 
-const printData=()=>{
-
+const printData=(id)=>{
+window.open(`order-details-page.html?id=${id}`);
 }
