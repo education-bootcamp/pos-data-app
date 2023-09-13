@@ -102,3 +102,32 @@ const calculateCost=()=>{
     });
     $('#net-total').val(ttl);
 }
+const placeOrder=()=>{
+    const customerId=$('#customer-id').val();
+    let obj={
+        customer:{
+            customerId: customerId,
+            name: $('#name').val(),
+            address: $('#address').val(),
+            salary: Number.parseInt($('#salary').val()),
+        },
+        orderDate:new Date().toISOString().split('T')[0],
+        totalCost:Number.parseInt($('#net-total').val()),
+        items:[]
+    }
+
+    const firestore = firebase.firestore();
+
+    orders.forEach(data=>{
+        obj.items.push(data)
+    });
+
+    firestore
+        .collection('orders')
+        .add(obj)
+        .then((response)=>{
+            toastr.success('Saved!', 'success!')
+        }).catch((error)=>{
+        console.log(error);
+    });
+}
