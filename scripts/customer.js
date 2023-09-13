@@ -4,7 +4,7 @@
 //     this.salary=salary;
 // }
 
-createCustomer=()=>{
+const createCustomer=()=>{
     const tempCustomer = {
         name: $('#name').val(),
         address: $('#address').val(),
@@ -22,5 +22,26 @@ createCustomer=()=>{
         }).catch((error)=>{
         console.log(error);
     });
+
+}
+
+const loadCustomers=()=>{
+    const firestore = firebase.firestore();
+    firestore
+        .collection('customers')
+        .get().then((result)=>{
+            result.forEach((records)=>{
+                const data = records.data();
+                const row=`
+                <tr>
+                    <td>${records.id}</td>
+                    <td>${data.name}</td>
+                    <td>${data.address}</td>
+                    <td>${data.salary}</td>
+                </tr>
+                `;
+                $('#table-body').append(row);
+            })
+    })
 
 }
