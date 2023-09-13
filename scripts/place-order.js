@@ -92,5 +92,13 @@ const addToCart=()=>{
         `;
         $('#cart-body').append(row);
     });
+    calculateCost();
 }
 
+const calculateCost=()=>{
+    let ttl=0;
+    orders.forEach(data=>{
+        ttl+=data.totalCost;
+    });
+    $('#net-total').val(ttl);
+}
